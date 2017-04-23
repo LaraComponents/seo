@@ -167,6 +167,7 @@ class Title implements TitleContract
      * Set reverse title position.
      *
      * @param bool $reverse
+     * @return \LaraComponents\Seo\Title
      */
     public function setReverse($reverse = true)
     {

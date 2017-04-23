@@ -2,7 +2,6 @@
 
 namespace LaraComponents\Seo;
 
-use InvalidArgumentException;
 use LaraComponents\Seo\Contracts\Title as TitleContract;
 
 class Title implements TitleContract
@@ -23,22 +22,22 @@ class Title implements TitleContract
     protected $siteName;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $maxSegment;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $maxTitle;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $reverse;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $siteNameVisibility;
 
@@ -121,7 +120,7 @@ class Title implements TitleContract
     /**
      * Set segment max length.
      *
-     * @param integer $max
+     * @param int $max
      * @return \LaraComponents\Seo\Title
      */
     public function setMaxSegemnt($max)
@@ -134,7 +133,7 @@ class Title implements TitleContract
     /**
      * Get segment max length.
      *
-     * @return integer
+     * @return int
      */
     public function getMaxSegment()
     {
@@ -144,7 +143,7 @@ class Title implements TitleContract
     /**
      * Set title max length.
      *
-     * @param integer $max
+     * @param int $max
      * @return \LaraComponents\Seo\Title
      */
     public function setMaxTitle($max)
@@ -157,7 +156,7 @@ class Title implements TitleContract
     /**
      * Get title max length.
      *
-     * @return integer
+     * @return int
      */
     public function getMaxTitle()
     {
@@ -167,7 +166,7 @@ class Title implements TitleContract
     /**
      * Set reverse title position.
      *
-     * @param boolean $reverse
+     * @param bool $reverse
      */
     public function setReverse($reverse = true)
     {
@@ -179,7 +178,7 @@ class Title implements TitleContract
     /**
      * Check reverse title position.
      *
-     * @return boolean
+     * @return bool
      */
     public function isReverse()
     {
@@ -189,7 +188,7 @@ class Title implements TitleContract
     /**
      * Set the site name visibility.
      *
-     * @param boolean $visible
+     * @param bool $visible
      */
     public function setSiteNameVisibility($visible)
     {
@@ -201,7 +200,7 @@ class Title implements TitleContract
     /**
      * Check if site name exists and visible.
      *
-     * @return boolean
+     * @return bool
      */
     public function isSiteNameVisible()
     {
@@ -256,7 +255,7 @@ class Title implements TitleContract
     public function make()
     {
         $parts = [];
-        if($this->isSiteNameVisible()) {
+        if ($this->isSiteNameVisible()) {
             $parts[] = $this->siteName;
         }
 
@@ -286,7 +285,7 @@ class Title implements TitleContract
             if (is_array($segment)) {
                 $normalized = array_merge($normalized, $this->normalizeSegments($segment));
             } else {
-                $segment =  trim(strip_tags((string) $segment));
+                $segment = trim(strip_tags((string) $segment));
 
                 if (mb_strlen($segment) > 0) {
                     $normalized[] = $this->maxSegment > 0 ? $this->limit($segment, $this->maxSegment) : $segment;

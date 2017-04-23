@@ -1,0 +1,27 @@
+{
+    "name": "laracomponents/seo",
+    "description": "Seo helpers for laravel >= 5.3",
+    "keywords": ["laravel", "seo", "metatags", "title", "description"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nikita Stenin",
+            "email": "stenin.nikita@gmail.com"
+        }
+    ],
+    "homepage": "https://github.com/LaraComponents/seo",
+    "support": {
+        "issues": "https://github.com/LaraComponents/seo/issues",
+        "source": "https://github.com/LaraComponents/seo"
+    },
+    "require": {
+        "php": ">=5.6.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaraComponents\\Seo\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

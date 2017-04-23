@@ -2,7 +2,6 @@
 
 namespace LaraComponents\Seo;
 
-use LaraComponents\Seo\Title;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 

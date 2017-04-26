@@ -4,6 +4,9 @@ namespace LaraComponents\Seo;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use LaraComponents\Seo\Entities\Description;
+use LaraComponents\Seo\Entities\Keywords;
+use LaraComponents\Seo\Entities\Title;
 
 class SeoServiceProvider extends ServiceProvider
 {
@@ -32,7 +35,7 @@ class SeoServiceProvider extends ServiceProvider
     protected function bootDirectives()
     {
         Blade::directive('title', function ($expression) {
-            return "<?php app('seo.title')->append($expression); ?>";
+            return "<?php app('seo.title')->add($expression); ?>";
         });
     }
 
@@ -45,6 +48,14 @@ class SeoServiceProvider extends ServiceProvider
     {
         $this->app->singleton('seo.title', function ($app) {
             return new Title($app->make('config')->get('seo.title'));
+        });
+
+        $this->app->singleton('seo.description', function ($app) {
+            return new Description($app->make('config')->get('seo.description'));
+        });
+
+        $this->app->singleton('seo.keywords', function ($app) {
+            return new Keywords($app->make('config')->get('seo.keywords'));
         });
     }
 

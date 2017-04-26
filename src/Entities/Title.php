@@ -1,11 +1,14 @@
 <?php
 
-namespace LaraComponents\Seo;
+namespace LaraComponents\Seo\Entities;
 
+use LaraComponents\Seo\Traits\HasLimit;
 use LaraComponents\Seo\Contracts\Title as TitleContract;
 
 class Title implements TitleContract
 {
+    use HasLimit;
+
     /**
      * @var array
      */
@@ -213,7 +216,7 @@ class Title implements TitleContract
      *
      * @return \LaraComponents\Seo\Title
      */
-    public function append()
+    public function add()
     {
         $segments = func_get_args();
 
@@ -253,7 +256,7 @@ class Title implements TitleContract
      *
      * @return string
      */
-    public function make()
+    public function toString()
     {
         $parts = [];
         if ($this->isSiteNameVisible()) {
@@ -298,29 +301,12 @@ class Title implements TitleContract
     }
 
     /**
-     * Limit the number of characters in a string.
-     *
-     * @param  string  $value
-     * @param  int     $limit
-     * @param  string  $end
-     * @return string
-     */
-    protected function limit($value, $limit = 100, $end = '...')
-    {
-        if (mb_strwidth($value, 'UTF-8') <= $limit) {
-            return $value;
-        }
-
-        return rtrim(mb_strimwidth($value, 0, $limit, '', 'UTF-8')).$end;
-    }
-
-    /**
      * Convert object to string.
      *
      * @return string
      */
     public function __toString()
     {
-        return $this->make();
+        return $this->toString();
     }
 }

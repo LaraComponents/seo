@@ -9,4 +9,14 @@ return [
         'reverse' => false,
         'site_name_visible' => true,
     ],
+
+    'description' => [
+        'max_size' => 155,
+        'default' => null,
+    ],
+
+    'keywords' => [
+        'max_words' => 0,
+        'default' => null,
+    ],
 ];

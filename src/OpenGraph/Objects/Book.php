@@ -2,7 +2,7 @@
 
 namespace LaraComponents\Seo\OpenGraph\Objects;
 
-class Book
+class Book extends TypeObject
 {
     protected $author;
 

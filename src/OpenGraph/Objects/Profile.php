@@ -2,7 +2,7 @@
 
 namespace LaraComponents\Seo\OpenGraph\Objects;
 
-class Profile
+class Profile extends TypeObject
 {
     protected $firstName;
 

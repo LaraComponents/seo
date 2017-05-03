@@ -2,6 +2,8 @@
 
 namespace LaraComponents\Seo\OpenGraph;
 
+use LaraComponents\Seo\OpenGraph\Objects\TypeObject;
+
 class OpenGraph
 {
     const DETERMINER_SUPPORTED = [
@@ -27,6 +29,11 @@ class OpenGraph
      * @var string
      */
     protected $type;
+
+    /**
+     * @var LaraComponents\Seo\OpenGraph\Objects\TypeObject
+     */
+    protected $typeObject;
 
     /**
      * @var string
@@ -88,6 +95,16 @@ class OpenGraph
     public function getType()
     {
         return $this->type;
+    }
+
+    public function setTypeObject(TypeObject $typeObject)
+    {
+        $this->typeObject = $typeObject;
+    }
+
+    public function getTypeObject()
+    {
+        return $this->typeObject;
     }
 
     public function setTitle($title)
